@@ -1,0 +1,28 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+ 
+\usepackage[danish]{babel}
+\usepackage{blindtext}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage[margin=1in]{geometry}
+\usepackage[square,comma,numbers]{natbib}
+\usepackage{float}
+
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily,
+  showstringspaces=false,
+  commentstyle=\color{red},
+  keywordstyle=\color{blue}
+}
+
+\usepackage{minted}
+
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}

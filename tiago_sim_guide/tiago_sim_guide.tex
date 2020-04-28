@@ -1,0 +1,155 @@
+\input{preamble}
+
+\title{\textbf{Tiago simulation guide}}
+\author{Jacob Nørgaard}
+ 
+\begin{document}
+
+\pagenumbering{Alph}
+\begin{titlepage}
+\clearpage\maketitle
+\thispagestyle{empty}
+\end{titlepage}
+\pagenumbering{arabic}
+
+\section{Getting started}
+
+Use following link to install fresh Ubuntu and ROS:
+
+\url{http://wiki.ros.org/Robots/TIAGo/Tutorials/Installation/InstallUbuntuAndROS}
+
+And the following link to install Tiago simulatior:
+
+\url{http://wiki.ros.org/Robots/TIAGo/Tutorials/Installation/TiagoSimulation}
+
+You should now have a workspace at 
+
+\begin{minted}[breaklines]{bash}
+~/tiago_public_ws
+\end{minted}
+
+When using the public simulator you have two robot options when launching:
+    
+\begin{itemize}
+	\item TIAGo Steel: in this configuration the end-effector is a parallel gripper
+    \item TIAGo Titanium: the wrist has a 6-axis force/torque sensor and the end-effector is the under-actuated 5-finger Hey5 hand.
+\end{itemize}
+    
+To lauch the simulator, run the following command in your workspace:
+\begin{minted}[breaklines]{bash}
+roslaunch tiago_gazebo tiago_gazebo.launch public_sim:=true robot:=steel
+\end{minted}
+
+or
+\begin{minted}[breaklines]{bash}
+roslaunch tiago_gazebo tiago_gazebo.launch public_sim:=true robot:=titanium
+\end{minted} 
+
+You can also launch the simulation in a small office environment with people in it:
+
+\begin{minted}[breaklines]{bash}
+roslaunch tiago_gazebo tiago_gazebo.launch public_sim:=true robot:=titanium world:=simple_office_with_people
+\end{minted}
+
+\section{Controlling the simulation}
+
+\subsection{Controlling the robot with your keyboard}
+
+Open two terminals and direct to your workspace in both and source the workspace:
+
+\begin{minted}[breaklines]{bash}
+cd ~/tiago_public_ws
+source ./devel/setup.bash
+\end{minted}
+
+Launch the simulation:
+
+\begin{minted}[breaklines]{bash}
+roslaunch tiago_gazebo tiago_gazebo.launch public_sim:=true robot:=titanium world:=simple_office_with_people
+\end{minted}
+
+In the second terminal, run the following command:
+
+\begin{minted}[breaklines]{bash}
+rosrun key_teleop key_teleop.py
+\end{minted}
+
+In this terminal windows you can now push your arrowkeys and see the robot move in the simulation.
+
+\subsection{Move through velocity commands}
+
+The velocity commands are sent to the simulation through the topic mobile\_base\_controllercmd\_vel of type \textit{geometry\_msgs/Twist} which is composed of:
+
+\begin{itemize}
+\item \textit{geometry\_msgs/Vector3 linear}
+\item \textit{geometry\_msgs/Vector3 angular}
+\end{itemize}
+
+and is specified by a linear and an angular velocity.
+
+\textbf{How to:}
+
+Once again direct to your workspace and source the workspace:
+
+\begin{minted}[breaklines]{bash}
+cd ~/tiago_public_ws
+source ./devel/setup.bash
+\end{minted}
+
+And Launch the simulation:
+
+\begin{minted}[breaklines]{bash}
+roslaunch tiago_gazebo tiago_gazebo.launch public_sim:=true robot:=steel
+\end{minted}
+
+In the second terminal windows you can now send commands specifying the linear and angular velocity by either:
+
+\begin{minted}[breaklines]{bash}
+rostopic pub /mobile_base_controller/cmd_vel geometry_msgs/Twist "linear:
+	x: 0.5
+	y: 0.0
+	z: 0.0
+angular:
+	x: 0.0
+	y: 0.0
+	z: 0.0" -r 3
+\end{minted}
+
+or
+
+\begin{minted}[breaklines]{bash}
+rostopic pub /mobile_base_controller/cmd_vel geometry_msgs/Twist -r 3 -- '[0.5,0.0,0.0]' '[0.0, 0.0, 0.0]'
+\end{minted}
+
+To make the robot move with a constant linear velocity of 0.5 m/s and -r denotes that the message is published 3 times per second.
+
+The same can be done with angular velocity:
+
+\begin{minted}[breaklines]{bash}
+rostopic pub /mobile_base_controller/cmd_vel geometry_msgs/Twist "linear:
+	x: 0.0
+	y: 0.0
+	z: 0.0
+angular:
+	x: 0.0
+	y: 0.0
+	z: 0.3" -r 3
+\end{minted}
+
+or 
+
+\begin{minted}[breaklines]{bash}
+rostopic pub /mobile_base_controller/cmd_vel geometry_msgs/Twist -r 3 -- '[0.0,0.0,0.0]' '[0.0, 0.0, 0.3]'
+\end{minted}
+
+to make the robot rotate around its own axis at 0.3 rad/s.
+
+\bibliographystyle{ieeetr}%
+% \bibliography{bib}
+
+\end{document}
+
+\iffalse
+\begin{minted}[breaklines]{bash}
+\end{minted}
+\fi
