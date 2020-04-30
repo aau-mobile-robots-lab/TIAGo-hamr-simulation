@@ -24,7 +24,7 @@ And the following link to install Tiago simulatior:
 
 You should now have a workspace at 
 
-\begin{minted}[breaklines]{bash}
+\begin{minted}[breaklines, frame=single]{bash}
 ~/tiago_public_ws
 \end{minted}
 
@@ -36,18 +36,18 @@ When using the public simulator you have two robot options when launching:
 \end{itemize}
     
 To lauch the simulator, run the following command in your workspace:
-\begin{minted}[breaklines]{bash}
+\begin{minted}[breaklines, frame=single]{bash}
 roslaunch tiago_gazebo tiago_gazebo.launch public_sim:=true robot:=steel
 \end{minted}
 
 or
-\begin{minted}[breaklines]{bash}
+\begin{minted}[breaklines, frame=single]{bash}
 roslaunch tiago_gazebo tiago_gazebo.launch public_sim:=true robot:=titanium
 \end{minted} 
 
 You can also launch the simulation in a small office environment with people in it:
 
-\begin{minted}[breaklines]{bash}
+\begin{minted}[breaklines, frame=single]{bash}
 roslaunch tiago_gazebo tiago_gazebo.launch public_sim:=true robot:=titanium world:=simple_office_with_people
 \end{minted}
 
@@ -57,20 +57,20 @@ roslaunch tiago_gazebo tiago_gazebo.launch public_sim:=true robot:=titanium worl
 
 Open two terminals and direct to your workspace in both and source the workspace:
 
-\begin{minted}[breaklines]{bash}
+\begin{minted}[breaklines, frame=single]{bash}
 cd ~/tiago_public_ws
 source ./devel/setup.bash
 \end{minted}
 
 Launch the simulation:
 
-\begin{minted}[breaklines]{bash}
+\begin{minted}[breaklines, frame=single]{bash}
 roslaunch tiago_gazebo tiago_gazebo.launch public_sim:=true robot:=titanium world:=simple_office_with_people
 \end{minted}
 
 In the second terminal, run the following command:
 
-\begin{minted}[breaklines]{bash}
+\begin{minted}[breaklines, frame=single]{bash}
 rosrun key_teleop key_teleop.py
 \end{minted}
 
@@ -91,20 +91,20 @@ and is specified by a linear and an angular velocity.
 
 Once again direct to your workspace and source the workspace:
 
-\begin{minted}[breaklines]{bash}
+\begin{minted}[breaklines, frame=single]{bash}
 cd ~/tiago_public_ws
 source ./devel/setup.bash
 \end{minted}
 
 And Launch the simulation:
 
-\begin{minted}[breaklines]{bash}
+\begin{minted}[breaklines, frame=single]{bash}
 roslaunch tiago_gazebo tiago_gazebo.launch public_sim:=true robot:=steel
 \end{minted}
 
 In the second terminal windows you can now send commands specifying the linear and angular velocity by either:
 
-\begin{minted}[breaklines]{bash}
+\begin{minted}[breaklines, frame=single]{bash}
 rostopic pub /mobile_base_controller/cmd_vel geometry_msgs/Twist "linear:
 	x: 0.5
 	y: 0.0
@@ -117,7 +117,7 @@ angular:
 
 or
 
-\begin{minted}[breaklines]{bash}
+\begin{minted}[breaklines, frame=single]{bash}
 rostopic pub /mobile_base_controller/cmd_vel geometry_msgs/Twist -r 3 -- '[0.5,0.0,0.0]' '[0.0, 0.0, 0.0]'
 \end{minted}
 
@@ -125,7 +125,7 @@ To make the robot move with a constant linear velocity of 0.5 m/s and -r denotes
 
 The same can be done with angular velocity:
 
-\begin{minted}[breaklines]{bash}
+\begin{minted}[breaklines, frame=single]{bash}
 rostopic pub /mobile_base_controller/cmd_vel geometry_msgs/Twist "linear:
 	x: 0.0
 	y: 0.0
@@ -138,18 +138,77 @@ angular:
 
 or 
 
-\begin{minted}[breaklines]{bash}
+\begin{minted}[breaklines, frame=single]{bash}
 rostopic pub /mobile_base_controller/cmd_vel geometry_msgs/Twist -r 3 -- '[0.0,0.0,0.0]' '[0.0, 0.0, 0.3]'
 \end{minted}
 
 to make the robot rotate around its own axis at 0.3 rad/s.
 
-\bibliographystyle{ieeetr}%
-% \bibliography{bib}
+\section{Joint trajectory controller}
+An example of how to move the arm by using joint trajectory action.
+
+
+
+For the following exercise it is important to understand which joints on the robot has which names. This is due to the fact that the joints in the program will only be enumerated and therefore a figure to look up the names. The head joints is shown in \autoref{fig:head_joints}, the the arm in \autoref{fig:arm_joints}, for the torso in \autoref{fig:torso_joints} and for the gripper in \autoref{fig:gripper_joints}. Since the Tiago that is available in the lab only has the gripper attachment, the joints for the Hey5 attachment is not included in this guide. 
+
+% maybe subfigures
+\missingfigure[figwidth=\textwidth]{Head joints}
+\missingfigure[figwidth=\textwidth]{Arm joints}
+\missingfigure[figwidth=\textwidth]{Torso joints}
+\missingfigure[figwidth=\textwidth]{Gripper joints}
+
+To start off, once again source your workspace:
+
+\begin{minted}[breaklines, frame=single]{bash}
+cd ~/tiago_public_ws
+source ./devel/setup.bash
+\end{minted}
+
+And launch your simulation:
+
+\begin{minted}[breaklines, frame=single]{bash}
+roslaunch tiago_gazebo tiago_gazebo.launch public_sim:=true robot:=steel
+\end{minted}
+
+The following example will move the arm through two waypoints with the joints described above configured as follows:
+
+Waypoint 1:
+\begin{minted}[breaklines, frame = single]{bash}
+arm_1_joint: 0.2
+arm_2_joint: 0.0
+arm_3_joint: -1.5
+arm_4_joint: 1.94
+arm_5_joint: -1.57
+arm_6_joint: -0.5
+arm_7_joint: 0.0
+\end{minted} 
+
+Waypoint 2:
+\begin{minted}[breaklines, frame=single]{bash}
+arm_1_joint: 2.5
+arm_2_joint: 0.2
+arm_3_joint: -2.1
+arm_4_joint: 1.9
+arm_5_joint: 1.0
+arm_6_joint: -0.5
+arm_7_joint: 0.0
+\end{minted} 
+
+To run the example, run the following command:
+
+\begin{minted}[breaklines, frame=single]{bash}
+rosrun tiago_trajectory_controller run_traj_control
+\end{minted}
+
+
+
+
+%\bibliographystyle{apalike}%
+%\bibliography{bib}
 
 \end{document}
 
 \iffalse
-\begin{minted}[breaklines]{bash}
+\begin{minted}[breaklines, frame=single]{bash}
 \end{minted}
 \fi
