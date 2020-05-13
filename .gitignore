@@ -338,5 +338,6 @@ CATKIN_IGNORE
 
 ### Repos ###
 .vscode
-/workspace
+/workspace/*
+!workspace/src
 
