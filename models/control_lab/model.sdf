@@ -1,17 +1,17 @@
 <?xml version='1.0'?>
 <sdf version='1.6'>
-  <model name='control_lab_v2'>
+  <model name='control_lab'>
     <link name='link'>
       <self_collide>0</self_collide>
       <enable_wind>0</enable_wind>
       <kinematic>0</kinematic>
-      <pose frame=''>0 0 0 0 -0 0</pose>
+      <pose frame=''>-5 12 -0.1 0 0 0</pose>
       <visual name='control_lab_visual'>
-        <pose frame=''>10 10 -0.1 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/jacob/TIAGo-hamr-simulation/models/control_lab.dae</uri>
-            <scale>0.1 0.1 0.1</scale>
+            <uri>/home/jacob/TIAGo-hamr-simulation/models/control_lab_doorways.dae</uri>
+            <scale>1 1 1</scale>
           </mesh>
         </geometry>
         <material>
@@ -30,11 +30,11 @@
       <collision name='control_lab_collision'>
         <laser_retro>0</laser_retro>
         <max_contacts>10</max_contacts>
-        <pose frame=''>10 10 -0.1 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/jacob/TIAGo-hamr-simulation/models/control_lab.dae</uri>
-            <scale>0.1 0.1 0.1</scale>
+            <uri>/home/jacob/TIAGo-hamr-simulation/models/control_lab_doorways.dae</uri>
+            <scale>1 1 1</scale>
           </mesh>
         </geometry>
         <surface>
