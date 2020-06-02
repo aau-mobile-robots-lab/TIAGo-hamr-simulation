@@ -62,6 +62,25 @@
          <uri>model://control_lab</uri>
       </include>
 
+      <!-- <include>
+         <uri>model://reward_zone</uri>
+         <pose frame = "">-6.5 8.5 0 0 0 0</pose>
+      </include> -->
+
+      <plugin name="add_reward_zone" filename = "../plugins/build/libadd_reward_zone.so">
+         <region_103>   1</region_103>
+         <region_104a>  1</region_104a>
+         <region_104b>  1</region_104b>
+         <region_104c>  1</region_104c>
+         <region_105>   1</region_105>
+         <region_107>   1</region_107>
+         <region_109>   1</region_109>
+         <region_111>   1</region_111>
+         <region_113a>  1</region_113a>
+         <region_113b>  1</region_113b>
+     </plugin>
+
+
       <!-- http://sdformat.org/spec?ver=1.6&elem=actor -->
 
       <actor name="actor1">
