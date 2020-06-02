@@ -19,10 +19,6 @@
           <diffuse>0.4 0.4 0.4 1</diffuse>
           <specular>0.1 0.1 0.1 1</specular>
           <emissive>0 0 0 0</emissive>
-          <script>
-            <name>ModelPreview_3::link::control_lab_visual_MATERIAL_</name>
-            <uri>__default__</uri>
-          </script>
         </material>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
