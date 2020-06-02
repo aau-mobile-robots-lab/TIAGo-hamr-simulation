@@ -70,11 +70,10 @@ void AddRegion::Load(physics::WorldPtr _parent, sdf::ElementPtr _sdf)
         // _parent->InsertModelFile("model://reward_zone");
         sdf::SDF setRegion103;
         setRegion103.SetFromString(
-            "<sdf version ='1.4'>\
+        "<sdf version ='1.4'>\
         <include>\
             <uri>model://reward_zone</uri>\
-            <pose frame = "
-            ">-6.5 8.5 0 0 0 0</pose>\
+            <pose frame = "">-6.5 8.5 0 0 0 0</pose>\
         </include>\
         </sdf>");
 
@@ -87,11 +86,10 @@ void AddRegion::Load(physics::WorldPtr _parent, sdf::ElementPtr _sdf)
     {
         sdf::SDF setRegion104a;
         setRegion104a.SetFromString(
-            "<sdf version ='1.4'>\
+        "<sdf version ='1.4'>\
         <include>\
             <uri>model://reward_zone</uri>\
-            <pose frame = "
-            ">-6.5 2.5 0 0 0 0</pose>\
+            <pose frame = "">-6.5 2.5 0 0 0 0</pose>\
         </include>\
         </sdf>");
 
@@ -104,11 +102,10 @@ void AddRegion::Load(physics::WorldPtr _parent, sdf::ElementPtr _sdf)
     {
         sdf::SDF setRegion104b;
         setRegion104b.SetFromString(
-            "<sdf version ='1.4'>\
+        "<sdf version ='1.4'>\
         <include>\
             <uri>model://reward_zone</uri>\
-            <pose frame = "
-            ">2 2.5 0 0 0 0</pose>\
+            <pose frame = "">2 2.5 0 0 0 0</pose>\
         </include>\
         </sdf>");
 
@@ -121,11 +118,10 @@ void AddRegion::Load(physics::WorldPtr _parent, sdf::ElementPtr _sdf)
     {
         sdf::SDF setRegion104c;
         setRegion104c.SetFromString(
-            "<sdf version ='1.4'>\
+        "<sdf version ='1.4'>\
         <include>\
             <uri>model://reward_zone</uri>\
-            <pose frame = "
-            ">2 -8 0 0 0 0</pose>\
+            <pose frame = "">2 -8 0 0 0 0</pose>\
         </include>\
         </sdf>");
 
@@ -138,11 +134,10 @@ void AddRegion::Load(physics::WorldPtr _parent, sdf::ElementPtr _sdf)
     {
         sdf::SDF setRegion105;
         setRegion105.SetFromString(
-            "<sdf version ='1.4'>\
+        "<sdf version ='1.4'>\
         <include>\
             <uri>model://reward_zone</uri>\
-            <pose frame = "
-            ">0 8.5 0 0 0 0</pose>\
+            <pose frame = "">0 8.5 0 0 0 0</pose>\
         </include>\
         </sdf>");
 
@@ -155,11 +150,10 @@ void AddRegion::Load(physics::WorldPtr _parent, sdf::ElementPtr _sdf)
     {
         sdf::SDF setRegion107;
         setRegion107.SetFromString(
-            "<sdf version ='1.4'>\
+        "<sdf version ='1.4'>\
         <include>\
             <uri>model://reward_zone</uri>\
-            <pose frame = "
-            ">4.5 8.5 0 0 0 0</pose>\
+            <pose frame = "">4.5 8.5 0 0 0 0</pose>\
         </include>\
         </sdf>");
 
@@ -172,11 +166,10 @@ void AddRegion::Load(physics::WorldPtr _parent, sdf::ElementPtr _sdf)
     {
         sdf::SDF setRegion109;
         setRegion109.SetFromString(
-            "<sdf version ='1.4'>\
+        "<sdf version ='1.4'>\
         <include>\
             <uri>model://reward_zone</uri>\
-            <pose frame = "
-            ">9 8.5 0 0 0 0</pose>\
+            <pose frame = "">9 8.5 0 0 0 0</pose>\
         </include>\
         </sdf>");
 
@@ -189,11 +182,10 @@ void AddRegion::Load(physics::WorldPtr _parent, sdf::ElementPtr _sdf)
     {
         sdf::SDF setRegion111;
         setRegion111.SetFromString(
-            "<sdf version ='1.4'>\
+        "<sdf version ='1.4'>\
         <include>\
             <uri>model://reward_zone</uri>\
-            <pose frame = "
-            ">8 2.5 0 0 0 0</pose>\
+            <pose frame = "">8 2.5 0 0 0 0</pose>\
         </include>\
         </sdf>");
 
@@ -206,11 +198,10 @@ void AddRegion::Load(physics::WorldPtr _parent, sdf::ElementPtr _sdf)
     {
         sdf::SDF setRegion113a;
         setRegion113a.SetFromString(
-            "<sdf version ='1.4'>\
+        "<sdf version ='1.4'>\
         <include>\
             <uri>model://reward_zone</uri>\
-            <pose frame = "
-            ">8 -4 0 0 0 0</pose>\
+            <pose frame = "">8 -4 0 0 0 0</pose>\
         </include>\
         </sdf>");
 
@@ -223,11 +214,10 @@ void AddRegion::Load(physics::WorldPtr _parent, sdf::ElementPtr _sdf)
     {
         sdf::SDF setRegion113b;
         setRegion113b.SetFromString(
-            "<sdf version ='1.4'>\
+        "<sdf version ='1.4'>\
         <include>\
             <uri>model://reward_zone</uri>\
-            <pose frame = "
-            ">8 -9.5 0 0 0 0</pose>\
+            <pose frame = "">8 -9.5 0 0 0 0</pose>\
         </include>\
         </sdf>");
 
